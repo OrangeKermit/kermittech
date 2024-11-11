@@ -1,5 +1,16 @@
 {
-    "itemGroup.kermittech": "Kermit Tech Items",
+    "creativetab.kermittech_tab":  "KermitTech Items",
 
-    "item.kermittech.coal_generator": "Coal Generator"
+    "item.kermittech.raw_aluminium": "Raw Aluminium",
+    "item.kermittech.aluminium_ingot": "Aluminium Ingot",
+    "item.kermittech.aluminium_nugget": "Aluminium Nugget",
+
+    "item.kermittech.aluminium_coil": "Aluminium Coil",
+
+    "block.kermittech.aluminium_block": "Block of Aluminium",
+    "block.kermittech.raw_aluminium_block": "Block of Raw Aluminium",
+    "block.kermittech.aluminium_ore": "Aluminium Ore",
+    "block.kermittech.deepslate_aluminium_ore": "Deepslate Aluminium Ore",
+
+    "block.kermittech.coal_generator": "Coal Generator"
 }

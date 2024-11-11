@@ -1,6 +1,14 @@
 package io.github.orangekermit.kermittech;
 
 import com.mojang.logging.LogUtils;
+import io.github.orangekermit.kermittech.block.ModBlocks;
+import io.github.orangekermit.kermittech.block.entity.ModBlockEntities;
+import io.github.orangekermit.kermittech.item.ModCreativeModeTabs;
+import io.github.orangekermit.kermittech.item.ModItems;
+import io.github.orangekermit.kermittech.screen.CoalGeneratorScreen;
+import io.github.orangekermit.kermittech.screen.ModMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -22,6 +30,14 @@ public class KermitTech {
     public KermitTech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -34,7 +50,10 @@ public class KermitTech {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        //if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+        //    event.accept(ModItems.ALUMINIUM_INGOT);
+        //    event.accept(ModItems.RAW_ALUMINIUM);
+        //}
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -49,6 +68,7 @@ public class KermitTech {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
+            MenuScreens.register(ModMenuTypes.COAL_GENERATOR_MENU.get(), CoalGeneratorScreen::new);
         }
     }
 }
