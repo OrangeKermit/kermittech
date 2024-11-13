@@ -31,6 +31,17 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.ALUMINIUM_COIL.get());
 
                         pOutput.accept(ModBlocks.COAL_GENERATOR.get());
+
+                        pOutput.accept(ModItems.ALUMINIUM_HELMET.get());
+                        pOutput.accept(ModItems.ALUMINIUM_CHESTPLATE.get());
+                        pOutput.accept(ModItems.ALUMINIUM_LEGGINGS.get());
+                        pOutput.accept(ModItems.ALUMINIUM_BOOTS.get());
+
+                        pOutput.accept(ModItems.ALUMINIUM_SWORD.get());
+                        pOutput.accept(ModItems.ALUMINIUM_PICKAXE.get());
+                        pOutput.accept(ModItems.ALUMINIUM_AXE.get());
+                        pOutput.accept(ModItems.ALUMINIUM_SHOVEL.get());
+                        pOutput.accept(ModItems.ALUMINIUM_HOE.get());
                     })
                     .build());
 

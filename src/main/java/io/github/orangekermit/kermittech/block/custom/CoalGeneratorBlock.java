@@ -5,6 +5,7 @@ import io.github.orangekermit.kermittech.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -12,6 +13,8 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -32,6 +35,8 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 public class CoalGeneratorBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING;
     public static final BooleanProperty LIT;
@@ -46,7 +51,6 @@ public class CoalGeneratorBlock extends BaseEntityBlock {
     public @NotNull RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
-
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
@@ -125,6 +129,12 @@ public class CoalGeneratorBlock extends BaseEntityBlock {
             pLevel.addParticle(ParticleTypes.SMOKE, $$4 + $$11, $$5 + $$12, $$6 + $$13, 0.0, 0.0, 0.0);
             pLevel.addParticle(ParticleTypes.FLAME, $$4 + $$11, $$5 + $$12, $$6 + $$13, 0.0, 0.0, 0.0);
         }
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltipComponents, TooltipFlag pFlag) {
+        pTooltipComponents.add(Component.translatable("tooltip.kermittech.coal_generator"));
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pFlag);
     }
 
     @Override

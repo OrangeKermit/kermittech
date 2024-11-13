@@ -5,6 +5,17 @@
     "item.kermittech.aluminium_ingot": "Aluminium Ingot",
     "item.kermittech.aluminium_nugget": "Aluminium Nugget",
 
+    "item.kermittech.aluminium_sword": "Aluminium Sword",
+    "item.kermittech.aluminium_pickaxe": "Aluminium Pickaxe",
+    "item.kermittech.aluminium_axe": "Aluminium Axe",
+    "item.kermittech.aluminium_shovel": "Aluminium Shovel",
+    "item.kermittech.aluminium_hoe": "Aluminium Hoe",
+
+    "item.kermittech.aluminium_helmet": "Aluminium Helmet",
+    "item.kermittech.aluminium_chestplate": "Aluminium Chestplate",
+    "item.kermittech.aluminium_leggings": "Aluminium Leggings",
+    "item.kermittech.aluminium_boots": "Aluminium Boots",
+
     "item.kermittech.aluminium_coil": "Aluminium Coil",
 
     "block.kermittech.aluminium_block": "Block of Aluminium",
@@ -12,5 +23,7 @@
     "block.kermittech.aluminium_ore": "Aluminium Ore",
     "block.kermittech.deepslate_aluminium_ore": "Deepslate Aluminium Ore",
 
-    "block.kermittech.coal_generator": "Coal Generator"
+    "block.kermittech.coal_generator": "Coal Generator",
+
+    "tooltip.kermittech.coal_generator": "Generates 40 RF/t"
 }

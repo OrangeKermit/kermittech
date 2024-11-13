@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> NEDS_ALUMINIUM_TOOL = tag("needs_aluminium_tool");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(KermitTech.MOD_ID, name));

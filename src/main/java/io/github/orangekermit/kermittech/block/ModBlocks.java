@@ -33,7 +33,9 @@ public class ModBlocks {
                     .strength(4.5f)));
 
     public static final RegistryObject<Block> COAL_GENERATOR = registerBlock("coal_generator",
-            () ->   new CoalGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((state) -> 15)));
+            () ->   new CoalGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .lightLevel((state) -> 15)),
+            1);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -41,9 +43,20 @@ public class ModBlocks {
         return toReturn;
     }
 
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, int maxStackSize) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn, maxStackSize);
+        return toReturn;
+    }
+
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
+
+    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, int maxStackSize) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(maxStackSize)));
+    }
+
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
