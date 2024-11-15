@@ -27,6 +27,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.ALUMINIUM_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_ALUMINIUM_ORE);
 
+        blockWithItem(ModBlocks.TIN_BLOCK);
+        blockWithItem(ModBlocks.RAW_TIN_BLOCK);
+
+        blockWithItem(ModBlocks.TIN_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_TIN_ORE);
+
         //orientableBlockWithItem(ModBlocks.COAL_GENERATOR);
 
     }

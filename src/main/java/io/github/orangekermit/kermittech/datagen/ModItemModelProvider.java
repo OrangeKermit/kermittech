@@ -43,7 +43,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RAW_ALUMINIUM);
         simpleItem(ModItems.ALUMINIUM_INGOT);
         simpleItem(ModItems.ALUMINIUM_NUGGET);
-        simpleItem(ModItems.ALUMINIUM_COIL);
 
         handheldItem(ModItems.ALUMINIUM_SWORD);
         handheldItem(ModItems.ALUMINIUM_PICKAXE);
@@ -56,6 +55,23 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.ALUMINIUM_LEGGINGS);
         trimmedArmorItem(ModItems.ALUMINIUM_BOOTS);
 
+        simpleItem(ModItems.RAW_TIN);
+        simpleItem(ModItems.TIN_INGOT);
+        simpleItem(ModItems.TIN_NUGGET);
+
+        handheldItem(ModItems.TIN_SWORD);
+        handheldItem(ModItems.TIN_PICKAXE);
+        handheldItem(ModItems.TIN_AXE);
+        handheldItem(ModItems.TIN_SHOVEL);
+        handheldItem(ModItems.TIN_HOE);
+
+        trimmedArmorItem(ModItems.TIN_HELMET);
+        trimmedArmorItem(ModItems.TIN_CHESTPLATE);
+        trimmedArmorItem(ModItems.TIN_LEGGINGS);
+        trimmedArmorItem(ModItems.TIN_BOOTS);
+
+        simpleItem(ModItems.ALUMINIUM_COIL);
+        simpleItem(ModItems.TIN_COIL);
     }
 
     // Shoutout to El_Redstoniano for making this

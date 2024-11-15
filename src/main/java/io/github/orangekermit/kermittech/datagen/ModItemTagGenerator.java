@@ -32,9 +32,23 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         // GENERAL TAGS
         this.tag(ModTags.ForgeItems.INGOT)
-                .add(ModItems.ALUMINIUM_INGOT.get());
+                .add(ModItems.ALUMINIUM_INGOT.get())
+                .add(ModItems.TIN_INGOT.get());
+        this.tag(ModTags.ForgeItems.RAW_MATERIALS)
+                .add(ModItems.RAW_ALUMINIUM.get())
+                .add(ModItems.RAW_TIN.get());
         this.tag(ModTags.ForgeItems.NUGGET)
-                .add(ModItems.ALUMINIUM_NUGGET.get());
+                .add(ModItems.ALUMINIUM_NUGGET.get())
+                .add(ModItems.TIN_NUGGET.get());
+
+        this.tag(ModTags.ForgeItems.STORAGE_BLOCKS)
+                .add(ModBlocks.ALUMINIUM_BLOCK.get().asItem(),
+                        ModBlocks.RAW_ALUMINIUM_BLOCK.get().asItem(),
+                        ModBlocks.TIN_BLOCK.get().asItem(),
+                        ModBlocks.RAW_TIN_BLOCK.get().asItem());
+        this.tag(ModTags.ForgeItems.ORES)
+                .add(ModBlocks.ALUMINIUM_ORE.get().asItem(),
+                        ModBlocks.DEEPSLATE_ALUMINIUM_ORE.get().asItem());
 
         // SPECIFIC TAGS
         this.tag(ModTags.ForgeItems.ALUMINIUM_INGOT)
@@ -43,5 +57,28 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.ALUMINIUM_NUGGET.get());
         this.tag(ModTags.ForgeItems.RAW_ALUMINIUM)
                 .add(ModItems.RAW_ALUMINIUM.get());
+
+        this.tag(ModTags.ForgeItems.TIN_INGOT)
+                .add(ModItems.TIN_INGOT.get());
+        this.tag(ModTags.ForgeItems.TIN_NUGGET)
+                .add(ModItems.TIN_NUGGET.get());
+        this.tag(ModTags.ForgeItems.RAW_TIN)
+                .add(ModItems.RAW_TIN.get());
+
+        this.tag(ModTags.ForgeItems.RAW_ALUMINIUM_BLOCK)
+                .add(ModBlocks.RAW_ALUMINIUM_BLOCK.get().asItem());
+        this.tag(ModTags.ForgeItems.ALUMINIUM_BLOCK)
+                .add(ModBlocks.ALUMINIUM_BLOCK.get().asItem());
+        this.tag(ModTags.ForgeItems.RAW_TIN_BLOCK)
+                .add(ModBlocks.RAW_TIN_BLOCK.get().asItem());
+        this.tag(ModTags.ForgeItems.TIN_BLOCK)
+                .add(ModBlocks.TIN_BLOCK.get().asItem());
+
+        this.tag(ModTags.ForgeItems.ALUMINIUM_ORE)
+                .add(ModBlocks.ALUMINIUM_ORE.get().asItem())
+                .add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE.get().asItem());
+        this.tag(ModTags.ForgeItems.TIN_ORE)
+                .add(ModBlocks.TIN_ORE.get().asItem())
+                .add(ModBlocks.DEEPSLATE_TIN_ORE.get().asItem());
     }
 }

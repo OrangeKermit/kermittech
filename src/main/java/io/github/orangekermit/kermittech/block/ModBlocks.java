@@ -32,6 +32,17 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(4.5f)));
 
+    public static final RegistryObject<Block> TIN_BLOCK = registerBlock("tin_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> RAW_TIN_BLOCK = registerBlock("raw_tin_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> TIN_ORE = registerBlock("tin_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
+                    .strength(3f)));
+    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
+                    .strength(4.5f)));
+
     public static final RegistryObject<Block> COAL_GENERATOR = registerBlock("coal_generator",
             () ->   new CoalGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .lightLevel((state) -> 15)),

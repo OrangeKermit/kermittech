@@ -11,8 +11,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ALUMINIUM("aluminium", 14, new int[]{1, 5, 4, 1}, 25,
-            SoundEvents.ARMOR_EQUIP_IRON, 0f, 0, () -> Ingredient.of(ModItems.ALUMINIUM_INGOT.get()));
+    ALUMINIUM("aluminium", 12, new int[]{1, 5, 4, 1}, 25,
+            SoundEvents.ARMOR_EQUIP_IRON, 0f, 0, () -> Ingredient.of(ModItems.ALUMINIUM_INGOT.get())),
+    TIN("tin", 14, new int[]{1, 5, 4, 1}, 25,
+        SoundEvents.ARMOR_EQUIP_IRON, 0f, 0, () -> Ingredient.of(ModItems.TIN_INGOT.get()));
 
     private final String name;
     private final int durabilityMultiplier;

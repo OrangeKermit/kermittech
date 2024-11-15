@@ -5,6 +5,10 @@
     "item.kermittech.aluminium_ingot": "Aluminium Ingot",
     "item.kermittech.aluminium_nugget": "Aluminium Nugget",
 
+    "item.kermittech.raw_tin": "Raw Tin",
+    "item.kermittech.tin_ingot": "Tin Ingot",
+    "item.kermittech.tin_nugget": "Tin Nugget",
+
     "item.kermittech.aluminium_sword": "Aluminium Sword",
     "item.kermittech.aluminium_pickaxe": "Aluminium Pickaxe",
     "item.kermittech.aluminium_axe": "Aluminium Axe",
@@ -16,12 +20,29 @@
     "item.kermittech.aluminium_leggings": "Aluminium Leggings",
     "item.kermittech.aluminium_boots": "Aluminium Boots",
 
-    "item.kermittech.aluminium_coil": "Aluminium Coil",
+    "item.kermittech.tin_sword": "Tin Sword",
+    "item.kermittech.tin_pickaxe": "Tin Pickaxe",
+    "item.kermittech.tin_axe": "Tin Axe",
+    "item.kermittech.tin_shovel": "Tin Shovel",
+    "item.kermittech.tin_hoe": "Tin Hoe",
+
+    "item.kermittech.tin_helmet": "Tin Helmet",
+    "item.kermittech.tin_chestplate": "Tin Chestplate",
+    "item.kermittech.tin_leggings": "Tin Leggings",
+    "item.kermittech.tin_boots": "Tin Boots",
 
     "block.kermittech.aluminium_block": "Block of Aluminium",
     "block.kermittech.raw_aluminium_block": "Block of Raw Aluminium",
     "block.kermittech.aluminium_ore": "Aluminium Ore",
     "block.kermittech.deepslate_aluminium_ore": "Deepslate Aluminium Ore",
+
+    "block.kermittech.tin_block": "Block of Tin",
+    "block.kermittech.raw_tin_block": "Block of Raw Tin",
+    "block.kermittech.tin_ore": "Tin Ore",
+    "block.kermittech.deepslate_tin_ore": "Deepslate Tin Ore",
+
+    "item.kermittech.aluminium_coil": "Aluminium Coil",
+    "item.kermittech.tin_coil": "Tin Coil",
 
     "block.kermittech.coal_generator": "Coal Generator",
 

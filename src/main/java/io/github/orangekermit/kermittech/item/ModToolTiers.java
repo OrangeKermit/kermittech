@@ -14,8 +14,12 @@ import java.util.List;
 public class ModToolTiers {
     public static final Tier ALUMINIUM = TierSortingRegistry.registerTier(
             new ForgeTier(2, 180, 5f, 4f, 12,
-                    ModTags.Blocks.NEDS_ALUMINIUM_TOOL, () -> Ingredient.of(ModItems.ALUMINIUM_INGOT.get())),
+                    ModTags.Blocks.NEEDS_ALUMINIUM_TOOL, () -> Ingredient.of(ModItems.ALUMINIUM_INGOT.get())),
             new ResourceLocation(KermitTech.MOD_ID, "aluminium"), List.of(Tiers.STONE), List.of());
 
+    public static final Tier TIN = TierSortingRegistry.registerTier(
+            new ForgeTier(2, 180, 5f, 4f, 12,
+                    ModTags.Blocks.NEEDS_TIN_TOOL, () -> Ingredient.of(ModItems.TIN_INGOT.get())),
+            new ResourceLocation(KermitTech.MOD_ID, "tin"), List.of(Tiers.STONE), List.of());
 
 }

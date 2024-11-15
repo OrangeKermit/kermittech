@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ALUMINIUM_ORE_PLACED_KEY = registerKey("aluminium_ore_placed");
+    public static final ResourceKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -25,6 +26,9 @@ public class ModPlacedFeatures {
         register(context, ALUMINIUM_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_ALUMINIUM_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(10,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(96))));
+        register(context, TIN_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_TIN_ORE_KEY),
+                ModOrePlacement.commonOrePlacement(7,
+                        HeightRangePlacement.triangle(VerticalAnchor.absolute(-24), VerticalAnchor.absolute(64))));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {
