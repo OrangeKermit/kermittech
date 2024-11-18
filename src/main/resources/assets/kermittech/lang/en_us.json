@@ -44,7 +44,11 @@
     "item.kermittech.aluminium_coil": "Aluminium Coil",
     "item.kermittech.tin_coil": "Tin Coil",
 
-    "block.kermittech.coal_generator": "Coal Generator",
+    "block.kermittech.machine_frame": "Machine Frame",
 
-    "tooltip.kermittech.coal_generator": "Generates 40 RF/t"
+    "block.kermittech.coal_generator": "Coal Generator",
+    "block.kermittech.electrical_furnace": "Electrical Furnace",
+
+    "tooltip.kermittech.coal_generator": "Generates 40 RF/t",
+    "tooltip.kermittech.electric_furnace": "Consumes 40 RF/t"
 }

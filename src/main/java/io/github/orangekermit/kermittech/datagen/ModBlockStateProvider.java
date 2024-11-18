@@ -33,6 +33,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.TIN_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_TIN_ORE);
 
+        blockWithItem(ModBlocks.MACHINE_FRAME);
+
         //orientableBlockWithItem(ModBlocks.COAL_GENERATOR);
 
     }

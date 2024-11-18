@@ -6,6 +6,7 @@ import io.github.orangekermit.kermittech.block.entity.ModBlockEntities;
 import io.github.orangekermit.kermittech.item.ModCreativeModeTabs;
 import io.github.orangekermit.kermittech.item.ModItems;
 import io.github.orangekermit.kermittech.screen.CoalGeneratorScreen;
+import io.github.orangekermit.kermittech.screen.ElectricalFurnaceScreen;
 import io.github.orangekermit.kermittech.screen.ModMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -69,6 +70,7 @@ public class KermitTech {
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             MenuScreens.register(ModMenuTypes.COAL_GENERATOR_MENU.get(), CoalGeneratorScreen::new);
+            MenuScreens.register(ModMenuTypes.ELECTRIC_FURNACE_MENU.get(), ElectricalFurnaceScreen::new);
         }
     }
 }

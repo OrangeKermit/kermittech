@@ -40,24 +40,16 @@ import java.util.logging.Logger;
 import static io.github.orangekermit.kermittech.block.custom.CoalGeneratorBlock.LIT;
 import static net.minecraftforge.common.ForgeHooks.getBurnTime;
 
-public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(1);
-
+public class CoalGeneratorBlockEntity extends AbstractMachineBlockEntity implements MenuProvider {
     private static final int INPUT_SLOT = 0;
-
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
     private int burnTime = 0;
     private int currentMaxBurnTime = 10;
-    private int maxEnergyRate = 40;
-    private int maxEnergyExtract = 80;
-    private int energyRate = 0;
-    private final CustomEnergyStorage energy = new CustomEnergyStorage(80000, 0, maxEnergyExtract, 0);
-    private LazyOptional<CustomEnergyStorage> energyOptional = LazyOptional.of(() -> this.energy);
 
     public CoalGeneratorBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.COAL_GENERATOR_BE.get(), pPos, pBlockState);
+        super(ModBlockEntities.COAL_GENERATOR_BE.get(), pPos, pBlockState,
+                1, 40, 80, 0, 80000, 0, null);
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
@@ -87,49 +79,6 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvide
                 return 5;
             }
         };
-
-
-    }
-
-    @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
-        }else if (cap == ForgeCapabilities.ENERGY) {
-            return this.energyOptional.cast();
-        }else{
-            return super.getCapability(cap, side);
-        }
-    }
-
-    public LazyOptional<CustomEnergyStorage> getEnergyOptional() {
-        return this.energyOptional;
-    }
-
-    public CustomEnergyStorage getEnergy() {
-        return this.energy;
-    }
-
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-        energyOptional = LazyOptional.of(() -> energy);
-    }
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
-
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++){
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-
-        Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
     @Override
@@ -199,31 +148,13 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private void removeFuel() {
-        this.itemHandler.extractItem(INPUT_SLOT, 1, false);;
+        this.itemHandler.extractItem(INPUT_SLOT, 1, false);
     }
 
     private void increaseEnergy() {
         if(this.energy.getEnergyStored() < this.energy.getMaxEnergyStored()) {
             this.energyRate = maxEnergyRate;
             this.energy.addEnergy(energyRate);
-        }
-    }
-
-    private void ejectEnergy() {
-        if(energy.canExtract()){
-            for (Direction direction : Direction.values()) {
-                BlockPos adjacentPos = this.worldPosition.relative(direction);
-                assert level != null;
-                final BlockEntity adjacentBlockEntity = this.level.getBlockEntity(this.worldPosition.relative(direction));
-                if (adjacentBlockEntity == null) {
-                    continue;
-                }
-                adjacentBlockEntity.getCapability(ForgeCapabilities.ENERGY, direction.getOpposite()).ifPresent(storage -> {
-                    final int toSend = this.energy.extractEnergy(this.maxEnergyExtract, false);
-                    final int received = storage.receiveEnergy(toSend, false);
-                    this.energy.setEnergy(this.energy.getEnergyStored() + toSend - received);
-                });
-            }
         }
     }
 

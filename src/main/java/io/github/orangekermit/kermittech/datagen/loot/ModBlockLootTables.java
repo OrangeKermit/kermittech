@@ -9,6 +9,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -29,7 +31,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.RAW_ALUMINIUM_BLOCK.get());
         this.dropSelf(ModBlocks.TIN_BLOCK.get());
         this.dropSelf(ModBlocks.RAW_TIN_BLOCK.get());
+        this.dropSelf(ModBlocks.MACHINE_FRAME.get());
         this.dropSelf(ModBlocks.COAL_GENERATOR.get());
+        this.dropSelf(ModBlocks.ELECTRICAL_FURNACE.get());
 
         this.add(ModBlocks.ALUMINIUM_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.ALUMINIUM_ORE.get(), ModItems.RAW_ALUMINIUM.get()));

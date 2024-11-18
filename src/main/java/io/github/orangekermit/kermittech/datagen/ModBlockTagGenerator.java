@@ -34,7 +34,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.TIN_ORE.get(),
                         ModBlocks.DEEPSLATE_TIN_ORE.get(),
                         ModBlocks.RAW_TIN_BLOCK.get(),
-                        ModBlocks.COAL_GENERATOR.get());
+                        ModBlocks.MACHINE_FRAME.get(),
+                        ModBlocks.COAL_GENERATOR.get(),
+                        ModBlocks.ELECTRICAL_FURNACE.get());
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.RAW_ALUMINIUM_BLOCK.get(),

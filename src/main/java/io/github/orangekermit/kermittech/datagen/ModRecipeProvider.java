@@ -116,6 +116,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
         // MACHINES
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MACHINE_FRAME.get())
+                .pattern("III")
+                .pattern("TAT")
+                .pattern("III")
+                .define('I', Tags.Items.INGOTS_IRON)
+                .define('T', ModTags.ForgeItems.TIN_INGOT)
+                .define('A', ModTags.ForgeItems.ALUMINIUM_INGOT)
+                .unlockedBy(getHasName(ModItems.TIN_INGOT.get()), has(ModItems.TIN_INGOT.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ELECTRICAL_FURNACE.get())
+                .pattern("CFC")
+                .pattern("AMA")
+                .pattern("III")
+                .define('I', Tags.Items.INGOTS_IRON)
+                .define('F', Items.FURNACE)
+                .define('C', ModItems.TIN_COIL.get())
+                .define('A', ModTags.ForgeItems.ALUMINIUM_INGOT)
+                .define('M', ModBlocks.MACHINE_FRAME.get().asItem())
+                .unlockedBy(getHasName(ModItems.TIN_COIL.get()), has(ModItems.TIN_COIL.get()))
+                .save(pWriter);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COAL_GENERATOR.get())
                 .pattern("QAQ")
                 .pattern("CFC")

@@ -2,20 +2,18 @@ package io.github.orangekermit.kermittech.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.orangekermit.kermittech.KermitTech;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.client.event.RenderTooltipEvent;
 
-public class CoalGeneratorScreen extends AbstractContainerScreen<CoalGeneratorMenu> {
+public class ElectricalFurnaceScreen extends AbstractContainerScreen<ElectricalFurnaceMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(KermitTech.MOD_ID, "textures/gui/coal_generator_gui.png");
+            new ResourceLocation(KermitTech.MOD_ID, "textures/gui/electrical_furnace_gui.png");
 
-    public CoalGeneratorScreen(CoalGeneratorMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public ElectricalFurnaceScreen(ElectricalFurnaceMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 
@@ -34,29 +32,18 @@ public class CoalGeneratorScreen extends AbstractContainerScreen<CoalGeneratorMe
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
 
-        renderFireProgress(guiGraphics, x, y);
+        renderProcessProgress(guiGraphics, x, y);
         renderEnergyProgress(guiGraphics, x, y);
-        renderEnergyText(guiGraphics, x, y, menu.getEnergyAmount(), menu.getMaxEnergyAmount());
-        renderEnergyRateText(guiGraphics, x, y, menu.getEnergyRateAmount());
     }
 
-    private void renderFireProgress(GuiGraphics guiGraphics, int x, int y) {
-        if(menu.isBurning()) {
-            guiGraphics.blit(TEXTURE, x + 46, y + 38-menu.getScaledFireProgress(), 176, 13-menu.getScaledFireProgress(), 13, menu.getScaledFireProgress());
+    private void renderProcessProgress(GuiGraphics guiGraphics, int x, int y) {
+        if(menu.isProcessing()) {
+            guiGraphics.blit(TEXTURE, x + 77, y + 35, 176, 0, menu.getScaledProcessProgress(), 16);
         }
     }
 
     private void renderEnergyProgress(GuiGraphics guiGraphics, int x, int y) {
-        guiGraphics.blit(TEXTURE, x + 104, y + 68-menu.getScaledEnergyProgress(), 176, 64-menu.getScaledEnergyProgress(), 13, menu.getScaledEnergyProgress());
-    }
-
-    private void renderEnergyText(GuiGraphics guiGraphics, int x, int y, int energy, int maxEnergy) {
-        guiGraphics.drawString(this.font, energy+"/", x+124, y+23, 0x404040, false);
-        guiGraphics.drawString(this.font, maxEnergy+" FE", x+124, y+38, 0x404040, false);
-    }
-
-    private void renderEnergyRateText(GuiGraphics guiGraphics, int x, int y, int energyRate) {
-        guiGraphics.drawString(this.font, energyRate+" FE/t", x+124, y+53, 0x404040, false);
+        guiGraphics.blit(TEXTURE, x + 163, y + 68-menu.getScaledEnergyProgress(), 176, 67-menu.getScaledEnergyProgress(), 3, menu.getScaledEnergyProgress());
     }
 
     @Override

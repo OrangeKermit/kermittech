@@ -1,33 +1,31 @@
 package io.github.orangekermit.kermittech.screen;
 
 import io.github.orangekermit.kermittech.block.ModBlocks;
-import io.github.orangekermit.kermittech.block.entity.CoalGeneratorBlockEntity;
+import io.github.orangekermit.kermittech.block.entity.ElectricalFurnaceBlockEntity;
+import io.github.orangekermit.kermittech.util.CustomSlotItemHandler;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.FurnaceBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
-import org.jetbrains.annotations.Nullable;
 
-public class CoalGeneratorMenu extends AbstractContainerMenu {
-    public final CoalGeneratorBlockEntity blockEntity;
+public class ElectricalFurnaceMenu extends AbstractContainerMenu {
+    public final ElectricalFurnaceBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public CoalGeneratorMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData){
+    public ElectricalFurnaceMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData){
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
     }
 
-    public CoalGeneratorMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.COAL_GENERATOR_MENU.get(), pContainerId);
-        checkContainerSize(inv ,1);
-        blockEntity = ((CoalGeneratorBlockEntity) entity);
+    public ElectricalFurnaceMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.ELECTRIC_FURNACE_MENU.get(), pContainerId);
+        checkContainerSize(inv ,2);
+        blockEntity = ((ElectricalFurnaceBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
 
@@ -35,39 +33,40 @@ public class CoalGeneratorMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            this.addSlot(new SlotItemHandler(iItemHandler, 0, 46, 42));
+            this.addSlot(new CustomSlotItemHandler(iItemHandler, 0, 52, 35, true, true));
+            this.addSlot(new CustomSlotItemHandler(iItemHandler, 1, 114, 35, false, true));
         });
 
         addDataSlots(data);
 
     }
 
-    public boolean isBurning() {
-        return (this.data.get(0) > 0);
+    public boolean isProcessing() {
+        return (this.data.get(3) > 0);
     }
 
-    public int getScaledFireProgress() {
-        int burnTime = this.data.get(0);
-        int maxBurnTime = this.data.get(1);
-        int fireProgressSize = 13;
+    public int getScaledProcessProgress() {
+        int progress = this.data.get(3);
+        int maxProgress = this.data.get(4);
+        int processProgressSize = 24;
 
-        return maxBurnTime != 0 && burnTime != 0 ? (int) Math.ceil((double) (burnTime * fireProgressSize) / maxBurnTime) : 0;
+        return progress != 0 ? (int) Math.ceil((double) (progress * processProgressSize) / maxProgress) : 0;
     }
 
     public int getScaledEnergyProgress() {
-        int energy = this.data.get(3);
-        int maxEnergy = this.data.get(4);
+        int energy = this.data.get(0);
+        int maxEnergy = this.data.get(1);
         int energyProgressSize = 50;
 
         return maxEnergy != 0 && energy != 0 ? (int) Math.ceil((double) (energy * energyProgressSize) / maxEnergy) : 0;
     }
 
     public int getEnergyAmount(){
-        return this.data.get(3);
+        return this.data.get(0);
     }
 
     public int getMaxEnergyAmount(){
-        return this.data.get(4);
+        return this.data.get(1);
     }
 
     public int getEnergyRateAmount(){
@@ -90,7 +89,7 @@ public class CoalGeneratorMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 1;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
@@ -127,7 +126,7 @@ public class CoalGeneratorMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.COAL_GENERATOR.get());
+                pPlayer, ModBlocks.ELECTRICAL_FURNACE.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

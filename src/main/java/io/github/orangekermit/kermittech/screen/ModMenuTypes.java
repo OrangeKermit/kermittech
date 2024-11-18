@@ -10,14 +10,14 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.awt.*;
-
 public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(ForgeRegistries.MENU_TYPES, KermitTech.MOD_ID);
 
     public static final RegistryObject<MenuType<CoalGeneratorMenu>> COAL_GENERATOR_MENU =
             registerMenuTypes("coal_generator_menu", CoalGeneratorMenu::new);
+    public static final RegistryObject<MenuType<ElectricalFurnaceMenu>> ELECTRIC_FURNACE_MENU =
+            registerMenuTypes("electrical_furnace_menu", ElectricalFurnaceMenu::new);
 
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuTypes(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

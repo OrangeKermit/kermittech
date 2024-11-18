@@ -51,5 +51,11 @@ public class CustomEnergyStorage extends EnergyStorage {
         return super.canExtract();
     }
 
+    @Override
+    public boolean canReceive() {
+        return super.canReceive();
+    }
+
+
 
 }

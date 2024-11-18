@@ -40,7 +40,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.ALUMINIUM_COIL.get());
                         pOutput.accept(ModItems.TIN_COIL.get());
 
+                        pOutput.accept(ModBlocks.MACHINE_FRAME.get());
                         pOutput.accept(ModBlocks.COAL_GENERATOR.get());
+                        pOutput.accept(ModBlocks.ELECTRICAL_FURNACE.get());
 
                         pOutput.accept(ModItems.ALUMINIUM_HELMET.get());
                         pOutput.accept(ModItems.ALUMINIUM_CHESTPLATE.get());

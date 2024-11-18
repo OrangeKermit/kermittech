@@ -2,13 +2,12 @@ package io.github.orangekermit.kermittech.block;
 
 import io.github.orangekermit.kermittech.KermitTech;
 import io.github.orangekermit.kermittech.block.custom.CoalGeneratorBlock;
+import io.github.orangekermit.kermittech.block.custom.ElectricalFurnaceBlock;
 import io.github.orangekermit.kermittech.item.ModItems;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -43,8 +42,15 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(4.5f)));
 
+    public static final RegistryObject<Block> MACHINE_FRAME = registerBlock("machine_frame",
+            () ->   new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
     public static final RegistryObject<Block> COAL_GENERATOR = registerBlock("coal_generator",
             () ->   new CoalGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .lightLevel((state) -> 15)),
+            1);
+    public static final RegistryObject<Block> ELECTRICAL_FURNACE = registerBlock("electrical_furnace",
+            () ->   new ElectricalFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
                     .lightLevel((state) -> 15)),
             1);
 
